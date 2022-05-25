@@ -6,8 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo_app</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<div id="app" class="container">
+    <h1>ToDoメモアプリ</h1>
+
+    <ul>
+        <li v-for="(todo, index) in todos" :key="todo">
+            {{ todo }}
+            <input type="checkbox" v-model="todo.isDone">
+            <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+            <span @click="deleteItem(index)" class="command">[x]</span>
+        </li>
+    </ul>
+    <form @submit.prevent="addItem">
+        <input type="text" v-model="newItem">
+        <input type="submit" velue="">
+    </form>
+</div>
+
+<script src="https://unpkg.com/vue@3.2.33"></script>
+<script src="app.js"></script>
 </body>
 </html>
