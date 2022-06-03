@@ -9,25 +9,23 @@
 <body>
 
 <div id="app" class="container">
-    <h1>ToDoメモアプリ</h1>
-    <p>{{ now }}</p>
+    <h1>
+        ToDoメモアプリ
+    <span class="info">ToDo数: {{ remaining }}</span>
+    </h1>
     <ul v-if="todos.length">
         <li v-for="(todo, index) in todos" :key="todo">
             {{ todo }}
-            <input type="checkbox" v-model="todo.isDone">
-            <span :class="{done: todo.isDone}">{{ todo.title }}</span>
-            <span @click="deleteItem(index)" class="command">[x]</span>
+            <span @click="deleteItem(index)">[x]</span>
         </li>
     </ul>
     <ul v-else>
         <li>Nothing to do, yay!</li>
     </ul>
-
     <form @submit.prevent="addItem">
         <input type="text" v-model="newItem">
-        <input type="submit" velue="">
+        <input type="submit" value="メモを追加">
     </form>
-
 </div>
 
 <script src="https://unpkg.com/vue@3.2.33"></script>

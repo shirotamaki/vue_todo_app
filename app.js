@@ -1,20 +1,34 @@
 const FooApp = {
-  data() {
+  data () {
     return {
-      todos: [
-    ]
+      todos: []
     }
   },
+  watch: {
+    todos: {
+      handler: function () {
+        localStorage.setItem('todos', JSON.stringify(this.todos))
+        alert('ok')
+      },
+      immediate: true,
+      deep: true
+    },
+  },
   methods: {
-    addItem: function() {
+    addItem: function () {
       this.todos.push(this.newItem)
       this.newItem = ''
     },
     deleteItem: function (index) {
-      if (confirm('are you sure?')) {
+      if (confirm('Are you sure?')) {
         this.todos.splice(index, 1)
       }
       this.newItem = ''
+    },
+  },
+  computed: {
+    remaining: function () {
+      return this.todos.length
     }
   }
 }
