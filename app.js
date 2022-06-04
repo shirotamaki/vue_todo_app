@@ -9,7 +9,6 @@ const FooApp = {
       handler: function () {
         localStorage.setItem('todos', JSON.stringify(this.todos))
       },
-      },
       deep: true
     }
   },
