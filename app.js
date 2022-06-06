@@ -14,23 +14,12 @@ const FooApp = {
       deep: true
     }
   },
+
   mounted: function() {
     this.todos = JSON.parse(localStorage.getItem('todos')) || []
   },
 
   methods: {
-    // addItem: function () {
-    //   this.todos.push(this.newItem)
-    //   this.newItem = ''
-    // },
-    // deleteItem: function (index) {
-    //   if (confirm('Are you sure?')) {
-    //     this.todos.splice(index, 1)
-    //   }
-    //   this.newItem = ''
-    // },
-    //
-    // 送信ボタンをクリックしたら以下を実行
     setItems () {
       if (this.editIndex === -1) {
         this.todos.push(this.text)
@@ -48,8 +37,11 @@ const FooApp = {
       this.text = this.todos[index]
       this.$refs.editor.focus()
     },
-    remove(index) {
-      this.todos.splice(index, 1)
+    remove (index) {
+      if (confirm('Are you sure?')) {
+        this.todos.splice(index, 1)
+      }
+      this.text = ''
     }
   },
 
@@ -64,5 +56,3 @@ const FooApp = {
 }
 
 Vue.createApp(FooApp).mount('#app')
-
-

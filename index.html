@@ -13,26 +13,14 @@
         ToDoメモアプリ
     <span class="info">ToDo数: {{ remaining }}</span>
     </h1>
-<!--    <ul v-if="todos.length">-->
-<!--        <li v-for="(todo, index) in todos" :key="todo">-->
-<!--            {{ todo }}-->
-<!--            <span @click="deleteItem(index)">[x]</span>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--    <ul v-else>-->
-<!--        <li>Nothing to do, yay!</li>-->
-<!--    </ul>-->
-<!--    <form @submit.prevent="addItem">-->
-<!--        <input type="text" v-model="text" v-on:keyup.enter="changeItems" ref="editor">-->
-<!--        <input type="submit" value="メモを追加">-->
-<!--    </form>-->
+
     <form @submit.prevent="addItem">
         <input type="text" v-model="text" ref="editor">
         <span><button v-on:click="setItems" type="submit">{{changeButtonText}}</button></span>
     </form>
 
     <ul>
-        <li v-for="(todo, index) in todos" v-bind:key="index">
+        <li v-for="(todo, index) in todos" v-bind:key="index" >
         {{ todo }}
         <span>
             <button v-on:click="edit(index)" >
