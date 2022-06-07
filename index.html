@@ -3,38 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>ToDo_app</title>
-    <title>ToDo_app</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div id="app" class="container">
-    <h1>
+    <header class="header">
         ToDoメモアプリ
-    <span class="info">ToDo数: {{ remaining }}</span>
-    </h1>
-
-    <form @submit.prevent="addItem">
-        <input type="text" v-model="text" ref="editor">
-        <span><button v-on:click="setItems" type="submit">{{changeButtonText}}</button></span>
-    </form>
-
-    <ul>
-        <li v-for="(todo, index) in todos" v-bind:key="index" >
-        {{ todo }}
-        <span>
-            <button v-on:click="edit(index)" >
-                編集
-            </button>
-        </span>
-            <button v-on:click="remove(index)">
-                削除
-            </button>
+        <span class="counter">メモ総数: {{ totalNumber }}</span>
+    </header>
+    <ul class="list-group">
+        <li class="list-group-item" v-for="(todo, index) in todos" :key="index">
+            {{ todo }}
+            <span><button class="button" @click="edit(index)">編集</button></span>
+            <span><button class="button" @click="remove(index)">削除</button></span>
         </li>
     </ul>
+    <form class="form-group" @submit.prevent="addItem">
+        <input class="form-input" type="text" v-model="text" ref="editor">
+        <span><button class="button" @click="setItems" type="submit">{{changeButtonText}}</button></span>
+        <span><button class="button" @click="cancel" type="submit">キャンセル</button></span>
+    </form>
 </div>
-
 <script src="https://unpkg.com/vue@3.2.33"></script>
-<script src="app.js"></script>
+<script src="main.js"></script>
 </body>
 </html>

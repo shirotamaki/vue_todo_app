@@ -1,9 +1,11 @@
-const FooApp = {
+/*global Vue*/
+
+const main = Vue.createApp ({
   data () {
     return {
-      text: "",
+      text: '',
       editIndex: -1,
-      todos: []
+      todos: [],
     }
   },
   watch: {
@@ -11,14 +13,12 @@ const FooApp = {
       handler: function () {
         localStorage.setItem('todos', JSON.stringify(this.todos))
       },
-      deep: true
+      deep: true,
     }
   },
-
-  mounted: function() {
+  mounted: function () {
     this.todos = JSON.parse(localStorage.getItem('todos')) || []
   },
-
   methods: {
     setItems () {
       if (this.editIndex === -1) {
@@ -28,8 +28,8 @@ const FooApp = {
       }
       this.cancel()
     },
-    cancel() {
-      this.text = ""
+    cancel () {
+      this.text = ''
       this.editIndex = -1
     },
     edit (index) {
@@ -44,15 +44,14 @@ const FooApp = {
       this.text = ''
     }
   },
-
   computed: {
-    remaining: function () {
+    totalNumber: function () {
       return this.todos.length
     },
-    changeButtonText() {
-      return this.editIndex === -1 ? "追加" : "編集"
+    changeButtonText () {
+      return this.editIndex === -1 ? '追加' : '編集'
     }
   }
-}
+})
 
-Vue.createApp(FooApp).mount('#app')
+main.mount('#app')
