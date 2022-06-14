@@ -1,6 +1,6 @@
 /*global Vue*/
 
-const main = Vue.createApp ({
+const main = Vue.createApp({
   data () {
     return {
       text: '',
@@ -8,18 +8,13 @@ const main = Vue.createApp ({
       todos: [],
     }
   },
-  watch: {
-    todos: {
-      handler: function () {
-        localStorage.setItem('todos', JSON.stringify(this.todos))
-      },
-      deep: true,
-    }
-  },
-  mounted: function () {
+  mounted () {
     this.todos = JSON.parse(localStorage.getItem('todos')) || []
   },
   methods: {
+    addItem () {
+      localStorage.setItem('todos', JSON.stringify(this.todos))
+    },
     setItems () {
       if (this.editIndex === -1) {
         this.todos.push(this.text)
