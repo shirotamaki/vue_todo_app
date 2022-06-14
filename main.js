@@ -37,6 +37,7 @@ const main = Vue.createApp({
         this.todos.splice(index, 1)
       }
       this.text = ''
+      localStorage.setItem('todos', JSON.stringify(this.todos))
     }
   },
   computed: {

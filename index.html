@@ -15,8 +15,8 @@
     <ul class="list-group">
         <li class="list-group-item" v-for="(todo, index) in todos" :key="index">
             {{ todo }}
-            <span><button class="button" @click="edit(index); addItem()">編集</button></span>
-            <span><button class="button" @click="remove(index); addItem()">削除</button></span>
+            <span><button class="button" @click="edit(index)">編集</button></span>
+            <span><button class="button" @click="remove(index)">削除</button></span>
         </li>
     </ul>
     <form class="form-group" @submit.prevent="addItem">
