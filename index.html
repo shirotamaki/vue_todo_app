@@ -19,10 +19,12 @@
             <span><button class="button" @click="remove(index)">削除</button></span>
         </li>
     </ul>
-    <form class="form-group" @submit.prevent="addItem">
+    <form class="form-group" @submit.prevent>
         <input class="form-input" type="text" v-model="text" ref="editor">
-        <span><button class="button" @click="setItems" type="submit">{{ changeButtonText }}</button></span>
-        <span><button class="button" @click="cancel" type="submit">キャンセル</button></span>
+        <div>
+            <span><button class="button" @click="setItems" type="submit">{{ changeButtonText }}</button></span>
+            <span><button class="button" @click="cancel" type="submit">キャンセル</button></span>
+        </div>
     </form>
 </div>
 <script src="https://unpkg.com/vue@3.2.33"></script>
