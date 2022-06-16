@@ -36,6 +36,12 @@ const main = Vue.createApp({
       }
       this.text = ''
       localStorage.setItem('todos', JSON.stringify(this.todos))
+    },
+    allClear() {
+      if (confirm('Are you sure?')) {
+        localStorage.clear()
+        this.todos = []
+      }
     }
   },
   computed: {
