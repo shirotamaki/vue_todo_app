@@ -1,0 +1,43 @@
+.container {
+    background-color: yellow;
+    font-family: sans-serif;
+    height: auto;
+    width: 400px;
+    margin: 12px;
+    border-color: gray;
+    border-width: thin;
+    border-style: solid;
+}
+
+.header {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 12px;
+}
+
+.counter {
+    color: #bbb;
+    font-size: 12px;
+}
+
+.list-group {
+    text-align: left;
+}
+
+.form-group {
+    text-align: center;
+    margin: 12px;
+}
+
+.form-input {
+    margin: 12px;
+    width: 300px;
+}
+
+.button {
+    margin: 12px 6px 12px 12px;
+    cursor: pointer;
+    font-size: 6px;
+}
